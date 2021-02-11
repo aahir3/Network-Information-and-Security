@@ -10,7 +10,7 @@ def multiplicative_inverse(a,n):
         t=t1-q*t2
         t1=t2
         t2=t
-    return r1,t1
+    return t1
 def encrypt(msg,k1,k2):
     l=list(msg)
     l1=len(l)
@@ -20,7 +20,7 @@ def encrypt(msg,k1,k2):
 def decrypt(msg,k1,k2):
     l=list(msg)
     l1=len(l)
-    gcd,inv = multiplicative_inverse(k1,n)
+    inv = multiplicative_inverse(k1,n)
     for i in range(l1):
         l[i]=chr(((ord(l[i])-97-k2)*inv)%26+97)
     return ("".join(l))
